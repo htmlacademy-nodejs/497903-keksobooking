@@ -1,15 +1,15 @@
-if (process.argv = `--version`) {
+if (process.argv[2] === `--version`) {
   console.log(`v0.0.1`);
-  console.error(0);
+  process.exit(0);
 }
 
-if (process.argv = `--help`) {
+if (process.argv[2] === `--help`) {
   console.log(`
     Доступные команды:
     --help— печатает этот текст;
     --version— печатает версию приложения;
     `);
-  console.error(0);
+  process.exit(0);
 }
 
 console.log(`
@@ -17,12 +17,12 @@ console.log(`
   Эта программа будет запускать сервер «Кексобукинг».
   Автор: Кекс.
 `);
-console.error(0);
+process.exit(0);
 
-if (process.argv != `--help` || process.argv != `--version`) {
+if (process.argv[2] !== `--help` || process.argv[2] !== `--version`) {
   console.log(`
-    Неизвестная команда {{ ... }}.
+    Неизвестная команда {{ ${process.argv[2]} }}.
     Чтобы прочитать правила использования приложения, наберите "--help"
   `);
-  console.error(1);
+  process.exit(1);
 }
