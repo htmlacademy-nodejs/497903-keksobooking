@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг» [![Build status][travis-image]][travis-url]
 
 * Студент: [Андрей Титов](https://up.htmlacademy.ru/nodejs/2/user/497903).
-* Наставник: `Неизвестно`.
+* Наставник: [Олег Акинин](https://htmlacademy.ru/profile/id372677).
 
 ---
 
