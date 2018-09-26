@@ -8,7 +8,7 @@ if (process.argv[2] === `--version`) {
       --version— печатает версию приложения;
       `);
     process.exit(0);
-} else if (process.argv[2] === ``) {
+} else if (!process.argv[2]) {
     console.log(`
       Привет пользователь!
       Эта программа будет запускать сервер «Кексобукинг».
