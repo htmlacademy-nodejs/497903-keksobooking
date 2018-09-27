@@ -3,14 +3,14 @@ if (process.argv[2] === `--version`) {
 } else if (process.argv[2] === `--help`) {
     console.log(`
       Доступные команды:
-      --help— печатает этот текст;
-      --version— печатает версию приложения;
+      --help — печатает этот текст;
+      --version — печатает версию приложения;
       `);
 } else if (!process.argv[2]) {
     console.log(`
       Привет пользователь!
       Эта программа будет запускать сервер «Кексобукинг».
-      Автор: Кекс.
+      Автор: Андрей Титов.
       `);
 } else if ((process.argv[2] !== `--help`) || (process.argv[2] !== `--version`)) {
     console.log(`
