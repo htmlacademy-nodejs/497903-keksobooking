@@ -4,6 +4,6 @@ module.exports = {
   name: `author`,
   description: `Shows program author`,
   execute() {
-    console.log(`v${packageInfo.author}`);
+    console.log(`${packageInfo.author}`);
   }
 };
