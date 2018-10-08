@@ -1,20 +1,27 @@
-const version = require(`./version`);
 const author = require(`./author`);
 const description = require(`./description`);
+const help = require(`./help`);
 const license = require(`./license`);
+const unknown = require(`./unknown`);
+const version = require(`./version`);
 
-module.exports = function () {
-  version.execute();
-};
+const cmdKeyAll = [
+  author,
+  description,
+  help,
+  license,
+  unknown,
+  version
+];
 
-module.exports = function () {
-  author.execute();
-};
+module.exports = function (arg) {
+  const cmdKey = cmdKeyAll.find((item) => `--${item.name}` === arg);
 
-module.exports = function () {
-  description.execute();
-};
-
-module.exports = function () {
-  license.execute();
+  if (cmdKey) {
+    cmdKey.execute(cmdKeyAll);
+  } else {
+    cmdKeyAll.find((item) => item.name === `unknown`).execute();
+    cmdKeyAll.find((item) => item.name === `help`).execute(cmdKeyAll);
+    process.exit(1);
+  }
 };
