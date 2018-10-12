@@ -4,8 +4,9 @@ const help = require(`./help`);
 const license = require(`./license`);
 const unknown = require(`./unknown`);
 const version = require(`./version`);
+const welcome = require(`./welcome`);
 
-const cmdKeyAll = [
+const commandKeyAll = [
   author,
   description,
   help,
@@ -14,15 +15,15 @@ const cmdKeyAll = [
   version
 ];
 
-module.exports = function (arg) {
-  const cmdKey = cmdKeyAll.find((item) => `--${item.name}` === arg);
+module.exports = function (currentCommand) {
+  const commandKey = commandKeyAll.find((item) => `--${item.name}` === currentCommand);
 
-  if (cmdKey) {
-    cmdKey.execute();
-  } else if (cmdKey === help) {
-    help.execute();
+  if (commandKey) {
+    commandKey.execute(commandKeyAll);
+  } else if (!commandKey) {
+    welcome.execute();
+  } else if (!commandKeyAll.indexOf(currentCommand)) {
+    commandKeyAll.find((item) => item.name === `unknown`).execute();
     process.exit(1);
-  } else {
-    unknown.execute();
   }
 };
