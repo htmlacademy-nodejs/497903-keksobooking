@@ -18,10 +18,11 @@ module.exports = function (arg) {
   const cmdKey = cmdKeyAll.find((item) => `--${item.name}` === arg);
 
   if (cmdKey) {
-    cmdKey.execute(cmdKeyAll);
-  } else {
-    cmdKeyAll.find((item) => item.name === `unknown`).execute();
-    cmdKeyAll.find((item) => item.name === `help`).execute(cmdKeyAll);
+    cmdKey.execute();
+  } else if (cmdKey === help) {
+    help.execute();
     process.exit(1);
+  } else {
+    unknown.execute();
   }
 };
