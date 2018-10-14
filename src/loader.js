@@ -20,9 +20,9 @@ module.exports = function (currentCommand) {
 
   if (commandKey) {
     commandKey.execute(commandKeyAll);
-  } else if (!commandKey) {
+  } else if (!currentCommand) {
     welcome.execute();
-  } else if (!commandKeyAll.indexOf(currentCommand)) {
+  } else if (commandKey !== currentCommand) {
     commandKeyAll.find((item) => item.name === `unknown`).execute();
     process.exit(1);
   }
