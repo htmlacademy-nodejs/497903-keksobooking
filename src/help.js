@@ -8,11 +8,11 @@ module.exports = {
   execute(commandKeyAll) {
     console.log(`
     Доступные команды:
-      --${this.name} — ${this.description};
-      --${findCommand(commandKeyAll, `version`).name} — ${findCommand(commandKeyAll, `version`).description};
-      --${findCommand(commandKeyAll, `author`).name} — ${findCommand(commandKeyAll, `author`).description};
-      --${findCommand(commandKeyAll, `license`).name} — ${findCommand(commandKeyAll, `license`).description};
-      --${findCommand(commandKeyAll, `description`).name} — ${findCommand(commandKeyAll, `description`).description};
+      --${this.name.gray} — ${this.description.green};
+      --${findCommand(commandKeyAll, `version`).name.gray} — ${findCommand(commandKeyAll, `version`).description.green};
+      --${findCommand(commandKeyAll, `author`).name.gray} — ${findCommand(commandKeyAll, `author`).description.green};
+      --${findCommand(commandKeyAll, `license`).name.gray} — ${findCommand(commandKeyAll, `license`).description.green};
+      --${findCommand(commandKeyAll, `description`).name.gray} — ${findCommand(commandKeyAll, `description`).description.green};
     `);
   }
 };
